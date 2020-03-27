@@ -3083,6 +3083,30 @@
   // G-code to execute when MMU2 F.I.N.D.A. probe detects filament runout
   #define MMU2_FILAMENT_RUNOUT_SCRIPT "M600"
 
+//AJOUT CODE KAKOU-FR
+
+  #define MMU2_C0_LOAD_SEQUENCE
+   #if ENABLED(MMU2_C0_LOAD_SEQUENCE)
+   // push the filament into the extruder when the MMU push it (start of C0)
+   #define MMU2_LOAD_TO_NOZZLE_SEQUENCE_START_C0 \
+     {  20.0,  1800 }
+
+    // when the filament is detected by the extruder sensor (MK3S) insert the filament 
+   // into the extruder (after C0 ack)
+   #define MMU2_LOAD_TO_NOZZLE_SEQUENCE_AFTER_C0 \
+     {  22.0,  1393 },  \
+     {  10.0,   614 }
+   #endif
+
+    #define MMU2_EXTRA_EJECT_LENGHT
+   #if ENABLED(MMU2_EXTRA_EJECT_LENGHT)
+   // Force more retract after extruder unload
+   #define MMU2_FILAMENTCHANGE_EJECT_FORCE_FEED 60.0
+   #define MMU2_FILAMENTCHANGE_EJECT_FORCE_SPEED 1800 //2500
+   #endif
+
+//FIN CODE KAKOU-FR
+
   // Add an LCD menu for MMU2
   #define MMU2_MENUS
   #if ENABLED(MMU2_MENUS)
