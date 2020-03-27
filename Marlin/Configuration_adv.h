@@ -664,7 +664,7 @@
    * This feature was designed for Delta's with very fast Z moves however higher speed cartesians may function
    * If the machine cannot raise the probe fast enough after a trigger, it may enter a fault state.
    */
-  //#define BLTOUCH_HS_MODE
+  #define BLTOUCH_HS_MODE
 
   // Safety: Enable voltage mode settings in the LCD menu.
   //#define BLTOUCH_LCD_VOLTAGE_MENU
@@ -3097,17 +3097,19 @@
       { 50.0,  198 }
 
     #define MMU2_RAMMING_SEQUENCE \
-      {   1.0, 1000 }, \
-      {   1.0, 1500 }, \
-      {   2.0, 2000 }, \
-      {   1.5, 3000 }, \
-      {   2.5, 4000 }, \
-      { -15.0, 5000 }, \
+      {   6.0, 1000 }, \
+      {   6.0, 1500 }, \
+      {   4.0, 2000 }, \
+      { -23.0, 5000 }, \
       { -14.0, 1200 }, \
       {  -6.0,  600 }, \
-      {  10.0,  700 }, \
-      { -10.0,  400 }, \
-      { -50.0, 2000 }
+      {  10.0, 1200 }, \
+      { -10.0, 1000 }, \
+      {  10.0, 800 }, \
+      { -10.0, 600 }, \
+      {  10.0, 700 }, \
+      { -10.0, 400 }, \
+      { -60.0, 2000 }
 
   #endif
 
